@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/logins/login-4/assets/css/login-4.css"> -->
+<link rel="stylesheet" href="./bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Website icon" type="png"  href="./icons8-inscription-100.png">
+    <title>Votre demande de stage</title>
+</head>
+<body>
+<section class="p-3 p-md-4 p-xl-5">
+    <div class="container">
+      <div class="card border-light-subtle shadow-sm">
+        <div class="row g-0">
+          <div class="col-6 col-md-6">
+            <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy" src="./image.png" alt="BootstrapBrain Logo">
+          </div>
+          
+          <div class="col-12 col-md-6">
+            <div class="card-body p-3 p-md-4 p-xl-5">
+              <div class="row">
+                <div class="col-12">
+                  <div class="mb-5">
+                    <h3>Votre demande de stage</h3>
+                  </div>
+                </div>
+              </div>
+              <form action="./domon.php" method="post" enctype="multipart/form-data" onsubmit="return validateName()" >
+                <div class="row gy-3 gy-md-4 overflow-hidden">
+                  <div class="col-12">
+                    <label for="nom" class="form-label">Nom <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="nom" id="name" placeholder="Entre voter Nom" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="prenom" class="form-label">Prenom <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="prenom" id="prenom" value="" placeholder="Entre voter prenom" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email" id="email" value=""placeholder="Entre voter email" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="password" class="form-label">mot de pass <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" name="password" id="password" value="" placeholder="Entre voter mot de pass" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">Filere <i class="text-danger">*</i></label>
+                    <select  name="option1" class="form-select" aria-label="Default select example" id="option" required>
+                        <option   selected >.......</option>
+                        <option value="Ingénierie chimique">Ingénierie chimique</option>
+                        <option value="Génie des procédés">Génie des procédés</option>
+                        <option value="Génie mécanique"> Génie mécanique</option>
+                        <option value="Génie électrique">Génie électrique</option>
+                        <option value="Géologie">Géologie</option>
+                        <option value="Biologie">Biologie</option>
+                        <option value="Chimie"> Chimie</option>
+                        <option value="Métallurgie"> Métallurgie</option>
+                        <option value="Gestion de l'environnement"> Gestion de l'environnement</option>
+                        <option value="Marketing"> Marketing</option>
+                        <option value="Comptabilités"> Comptabilités</option>
+                        <option value="Finance">Finance</option>
+                        <option value=" Informatique et technologies de l'information"> Informatique et technologies de l'information</option>
+                      </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="" class="form-label">duree de stage <i class="text-danger">*</i></label>
+                    <select class="form-select" aria-label="Default select example" name="mois">
+                        <option selected>....</option>
+                        <option value="1mois">1mois</option>
+                        <option value="2mois">2mois</option>
+                        <option value="3mois">3mois</option>
+                      </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="formFile" class="form-label"><h4>Importer voter cv <i class="text-danger">*</i></h4></label>
+                    <input class="form-control" type="file" id="formFile" name="pdf" required>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me" required>
+                      <label class="form-check-label text-secondary" for="remember_me">
+                        valid
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="d-grid">
+                      <button class="btn bsb-btn-xl btn-primary"  type="submit"  name="ok">Envoyer</button>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function validateName() {
+      var nameInput = document.getElementById('name');
+      var nameValue = nameInput.value.trim();
+      // Check if the name is not empty
+      if (nameValue === '') {
+        alert('Please enter your name.');
+        nameInput.focus();
+        return false;
+      }
+
+      // Check if the name contains only letters
+      var nameRegex = /^[A-Za-z]+$/;
+      if (!nameRegex.test(nameValue)) {
+        alert('Please enter a valid name with only letters.');
+        nameInput.focus();
+        return false;
+      }
+
+      // validation prenom 
+      var nameInput1 = document.getElementById('prenom');
+      var nameValue1 = nameInput1.value.trim();
+      if (nameValue1 === '') {
+        alert('Please enter your prenom.');
+        nameInput1.focus();
+        return false;
+      }
+      if (!nameRegex.test(nameValue1)) {
+        alert('Please enter a valid name with only letters.');
+        nameInput1.focus();
+        return false;
+      }
+       //validation  email
+       var emailinput = document.getElementById('email');
+       var emailRegex = /^(.+)@(.+)$/;
+       if (nameValue1 === '') {
+        alert('Please enter your email.');
+        emailinput.focus();
+        return false;
+      }
+      // if (!emailRegex.test(emailinput)) {
+      //   alert('Please enter a valid email address ');
+      //   emailinput.focus();
+      //   return false;
+      // }
+      //validation mot pass
+      var passwordInput = document.getElementById('password');
+      var passwordRegex= /^.{8,}$/;
+      
+
+      if (passwordInput.length < 8) {
+        alert('Password must be at least 8 characters long.');
+        passwordInput.focus();
+        return false;
+      }
+      if (!passwordRegex.test(passwordInput)) {
+        alert('Password must contain at least one uppercase letter.');
+        passwordInput.focus();
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+
+</html>
